@@ -1,9 +1,6 @@
 //Schord v0.0.1
 //made by nokko
 (function(ext) {
-    $.getScript("discord-io.js",
-
-    function(ext) {
         ext.bot_ready = function(bot_name) {
             let ready_return = true;
             if (ready_return)
@@ -28,10 +25,10 @@
                 // Block type, block name, function name
                 // Block type 'h' is for hat.
                 ['h', 'when the Discord bot %s logs in', 'bot_ready', 'John Smith'],
-            ]
+            ],
+            url: 'https://dimdown.github.io/schord',
         };
     
         // Register the extension
-        ScratchExtensions.register('Gimped Schord (testing variety, v0.0.1)', descriptor, ext);
-    });
+        ScratchExtensions.register('Gimped Schord', descriptor, ext);
 })({});
