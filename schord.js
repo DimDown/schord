@@ -177,7 +177,7 @@
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {
-        client.disconnect()
+        client.disconnect();
     };
 
     // Status reporting code
@@ -194,37 +194,37 @@
     ext.bot_ready = function() {
         client.on('ready', function() {
             console.log("%s (%s)... in ScratchX!", client.username, client.id);
-            alert("wow for reals, bro! gj nokko.")
+            // alert("wow for reals, bro! gj nokko.");
             return true;
         });
 
     };
-
+    
     ext.bot_login_user = function(username, password) {
         options.username = username;
         options.password = password;
-    }
+    };
 
     ext.bot_login_token = function(token){
         options.token = token;
-    }
+    };
     
     ext.bot_connect = function(){
-        client = client(options)
-        client.connect()
-    }
-    
+        client = client(options);
+        client.connect();
+    };
+
     // Block and block menu descriptions
-    var descriptor = {
+    let descriptor = {
         blocks: [
             // Block type, block name, function name
             // Block type 'h' is for hat.
             ['h', 'when the Discord bot is ready to work', 'bot_ready'],
             [' ', 'set the bot\'s e-mail and password to: %s %s', 'bot_login_user', 'john.doe@example.com', 'hunter2'],
             [' ', 'set the bot\'s login token to %s', 'bot_login_token', `xxxxxx`],
-            ['w', 'connect the bot to Discord', 'bot_connect'],
+            ['w', 'connect the bot to Discord', 'bot_connect']
         ],
-        url: 'https://dimdown.github.io/schord',
+        url: 'https://dimdown.github.io/schord'
     };
 
     // Register the extension
