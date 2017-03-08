@@ -2,7 +2,7 @@
 //made by nokko
 (function(ext) {
     //Load the discord.io library
-    $.getScript( "discord-io.js", function( data, textStatus, jqxhr ) {
+    $.getScript( "http://dimdown.github.io/schord/discord-io.js", function( data, textStatus, jqxhr ) {
     return null;
     });
     // Cleanup function when the extension is unloaded
