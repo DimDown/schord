@@ -190,16 +190,15 @@
         return new Discord.Client(client_options);
     };
     let options = {};
-
+    
+    let bot_is_ready = false
     ext.bot_ready = function() {
-        let x = false
         client.on('ready', function() {
             console.log("%s (%s)... in ScratchX!", client.username, client.id);
             // alert("wow for reals, bro! gj nokko.");
-            x = true
-            return x;
+            bot_is_ready = true
         });
-        return x;
+        return bot_is_ready;
     };
     
     ext.bot_login_user = function(username, password) {
