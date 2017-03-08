@@ -215,12 +215,9 @@
         client.connect();
     };
 
-    ext.bot_get_message = function(channel, limit){
+    ext.bot_get_message = function(channel, limit, delimiter){
         if (bot_is_ready){
-            client.getMessages({
-                "channelID":channel, 
-                "limit":limit}, 
-                function(error, messageArray, delimiter){
+            client.getMessages({"channelID":channel, "limit":limit}, function(error, messageArray){
                 return messageArray.join(delimiter);
             });
         }
