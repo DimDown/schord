@@ -221,7 +221,7 @@
             // Block type 'h' is for hat.
             ['h', 'when the Discord bot is ready to work', 'bot_ready'],
             [' ', 'set the bot\'s e-mail and password to: %s %s', 'bot_login_user', 'john.doe@example.com', 'hunter2'],
-            [' ', 'set the bot\'s login token to %s', 'bot_login_token', `xxxxxxxxxxxxxxxxxxxxxxxxx+`]
+            [' ', 'set the bot\'s login token to %s', 'bot_login_token', `xxxxxxxxxxxxxxxxxxxxxxxxx+`],
             [' ', 'connect the bot to Discord', 'bot_connect'],
         ],
         url: 'https://dimdown.github.io/schord',
