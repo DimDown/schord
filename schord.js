@@ -194,9 +194,9 @@
     let bot_is_ready = false
     ext.bot_ready = function() {
         client.on('ready', function() {
-            console.log("%s (%s)... in ScratchX!", client.username, client.id);
-            // alert("wow for reals, bro! gj nokko.");
+            console.log(`${client.username}#${client.discriminator} (${client.id})... in ScratchX!`);
             bot_is_ready = true
+            return bot_is_ready;
         });
         return bot_is_ready;
     };
