@@ -4,10 +4,10 @@
     $.getScript("discord-io.js",
 
     function(ext) {
-        ext.bot_ready = function() {
+        ext.bot_ready = function(bot_name) {
             let ready_return = true;
             if (ready_return)
-                return;
+                return true;
         };
         
         // Status reporting code
