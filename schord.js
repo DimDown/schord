@@ -215,12 +215,13 @@
         client.connect();
     };
 
-    ext.bot_get_message = function(channel, number){
+    ext.bot_get_message = function(channel, limit){
         if (bot_is_ready){
-            client.getMessages({channelID:channel, limit:number}, function(error, messageArray, delimiter){
-                if (!error){
-                    return messageArray.join(delimiter);
-                }
+            client.getMessages({
+                "channelID":channel, 
+                "limit":limit}, 
+                function(error, messageArray, delimiter){
+                return messageArray.join(delimiter);
             });
         }
     };
