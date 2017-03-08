@@ -1,0 +1,4 @@
+[submodule "discord-io"]
+	path = discord.io
+	url = http://github.com/izy521/discord.io
+	branch = master
