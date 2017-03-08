@@ -197,7 +197,7 @@
             console.log("%s (%s)... in ScratchX!", client.username, client.id);
             // alert("wow for reals, bro! gj nokko.");
             x = true
-            return;
+            return x;
         });
         return x;
     };
