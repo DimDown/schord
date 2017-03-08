@@ -215,21 +215,33 @@
         client.connect();
     };
 
+    ext.bot_get_message = function(channel, number){
+        if (bot_is_ready){
+            client.getMessages({channelID:channel, limit:number}, (error, messageArray, delimiter) => {
+                if error
+                    console.log("Error in get_message!")
+                else
+                    return messageArray.join(delimiter)
+            });
+        }
+    };
+
     // Block and block menu descriptions
     let descriptor = {
         blocks: [
             // Block type, block name, function name
-            // Block type 'h' is for hat.
-            ['h', 'when the Discord bot is ready to work', 'bot_ready'],
-            [' ', 'set the bot\'s e-mail and password to: %s %s', 'bot_login_user', 'john.doe@example.com', 'hunter2'],
-            [' ', 'set the bot\'s login token to %s', 'bot_login_token', `xxxxxx`],
-            ['w', 'connect the bot to Discord', 'bot_connect']
+            // Block type 'h' is for hat block, ' ' is for sync. command, 'w' is for async command, `R` is for async. reporter, 'r' is for sync. reporter, 'b' is for boolean sync. reporter.
+            ["h", "when the Discord bot is ready to work", "bot_ready"],
+            [" ", "set the bot's e-mail and password to: %s %s", "bot_login_user", "john.doe@example.com", "hunter2"],
+            [" ", "set the bot's login token to %s", "bot_login_token", `xxxxxx`],
+            ["R", "get the last %d messages of channel %s delimited by %s", "bot_get_message", 50, "channel_id", "|"],
+            ["w", "connect the bot to Discord", "bot_connect"]
         ],
-        url: 'https://dimdown.github.io/schord'
+        url: "https://dimdown.github.io/schord"
     };
 
     // Register the extension
-    ScratchExtensions.register('Schord', descriptor, ext);
+    ScratchExtensions.register("Schord", descriptor, ext);
 })({});
 
 /*
