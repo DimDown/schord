@@ -217,11 +217,12 @@
 
     ext.bot_get_message = function(channel, number){
         if (bot_is_ready){
-            client.getMessages({channelID:channel, limit:number}, (error, messageArray, delimiter) => {
+            client.getMessages({channelID:channel, limit:number}, function(error, messageArray, delimiter){
                 if (error){
-                    console.log("Error in get_message!")
+                    console.log("Error in get_message!");
                 } else {
-                    return messageArray.join(delimiter)}
+                    return messageArray.join(delimiter);
+                }
             });
         }
     };
