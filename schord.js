@@ -192,12 +192,14 @@
     let options = {};
 
     ext.bot_ready = function() {
+        let x = false
         client.on('ready', function() {
             console.log("%s (%s)... in ScratchX!", client.username, client.id);
             // alert("wow for reals, bro! gj nokko.");
-            return true;
+            x = true
+            return;
         });
-
+        return x;
     };
     
     ext.bot_login_user = function(username, password) {
