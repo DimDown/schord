@@ -218,10 +218,10 @@
     ext.bot_get_message = function(channel, number){
         if (bot_is_ready){
             client.getMessages({channelID:channel, limit:number}, (error, messageArray, delimiter) => {
-                if error
+                if (error){
                     console.log("Error in get_message!")
-                else
-                    return messageArray.join(delimiter)
+                } else {
+                    return messageArray.join(delimiter)}
             });
         }
     };
