@@ -177,7 +177,7 @@
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {
-
+    
     };
 
     // Status reporting code
@@ -186,31 +186,45 @@
         return {status: 2, msg: 'Ready'};
     };
 
-
+    let client = function client_init(client_options) {
+        return new Discord.Client(client_options);
+    };
+    let options = {};
 
     ext.bot_ready = function() {
-
-        let client = new Discord.Client({
-            token: "MTkwNjg2NzYyNTY0MDU5MTM3.C6FNZw.bFBUVjsHBYZn1PkcTsRy0jP9Oi8",
-            autorun: true
-        });
-
         client.on('ready', function() {
             console.log("%s (%s)... in ScratchX!", client.username, client.id);
-            ready_return = true
+            alert("wow for reals, bro! gj nokko.")
+            return true;
         });
 
-        if (ready_return)
-            return;
     };
+
+    ext.bot_login_user = function(username, password) {
+        options.username = username;
+        options.password = password;
+    }
+
+    ext.bot_login_token = function(token){
+        options.token = token;
+    }
+    
+    ext.bot_connect = function(){
+        client = client(options)
+        client.connect()
+    }
     
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             // Block type, block name, function name
             // Block type 'h' is for hat.
-            ['h', 'when the Discord bot logs in', 'bot_ready'],
-        ]
+            ['h', 'when the Discord bot is ready to work', 'bot_ready'],
+            [' ', 'set the bot\'s e-mail and password to: %s %s', 'bot_login_user', 'john.doe@example.com', 'hunter2'],
+            [' ', 'set the bot\'s login token to %s', 'bot_login_token', `xxxxxxxxxxxxxxxxxxxxxxxxx+`]
+            [' ', 'connect the bot to Discord', 'bot_connect'],
+        ],
+        url: 'https://dimdown.github.io/schord',
     };
 
     // Register the extension
