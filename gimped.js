@@ -4,31 +4,30 @@
     $.getScript("discord-io.js",
 
     function(ext) {
-        // Cleanup function when the extension is unloaded
-        ext._shutdown = function() {
-
-        };
-
-        // Status reporting code
-        // Use this to report missing hardware, plugin or unsupported browser
-        ext._getStatus = function() {
-            return {status: 2, msg: 'Ready'};
-        };
-
-
-
         ext.bot_ready = function() {
             let ready_return = true;
             if (ready_return)
                 return;
         };
         
+        // Status reporting code
+        // Use this to report missing hardware, plugin or unsupported browser
+        ext._getStatus = function() {
+            return {status: 2, msg: 'Ready'};
+        };
+
+        ext._shutdown = function() {
+            if (poller) {
+                clearInterval(poller);
+                poller = null;
+            }
+        };
         // Block and block menu descriptions
         var descriptor = {
             blocks: [
                 // Block type, block name, function name
                 // Block type 'h' is for hat.
-                ['h', 'when the Discord bot logs in', 'bot_ready'],
+                ['h', 'when the Discord bot %s logs in', 'bot_ready', 'John Smith'],
             ]
         };
     
